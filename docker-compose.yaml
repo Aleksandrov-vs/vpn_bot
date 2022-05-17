@@ -1,0 +1,28 @@
+version: '3.7'
+
+x-base: &base
+    env_file:
+        - .env
+
+services:
+    bot:
+        restart: always
+        build:
+            context: .
+            dockerfile: volumes/build/bot/Dockerfile
+#            volumes:
+#                - ./data:/go/src/informer/data
+        ports:
+            - 127.0.0.1:${SERVER_PORT}:${SERVER_PORT}
+    postgres:
+        image: postgres:13
+        hostname: postgres
+        restart: always
+        environment:
+            POSTGRES_USER: ${POSTGRES_USER}
+            POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+            POSTGRES_DB: ${POSTGRES_DB}
+        ports:
+            - ${POSTGRES_PORT}:5432
+        volumes:
+            - ./data/postgres:/var/lib/postgresql/data
