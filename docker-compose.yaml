@@ -11,7 +11,7 @@ services:
             context: .
             dockerfile: volumes/build/bot/Dockerfile
 #            volumes:
-#                - ./data:/go/src/informer/data
+#                - ./data:/go/app/informer/data
         ports:
             - 127.0.0.1:${SERVER_PORT}:${SERVER_PORT}
     postgres:

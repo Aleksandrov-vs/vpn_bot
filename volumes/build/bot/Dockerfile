@@ -7,4 +7,4 @@ RUN pip install -r /requirements.txt
 
 COPY ./src/ ./src
 
-CMD [ "python", "/code/src/main.py" ]
+CMD [ "python", "/code/src/server.py" ]

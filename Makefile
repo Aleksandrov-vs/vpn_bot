@@ -3,6 +3,7 @@ ifneq (,$(wildcard ./.env))
     export
 endif
 
+
 fresh_database:
 	echo "This command cleans up the whole database. Press ENTER if you are sure you are not on production, else press Ctrl+C"; \
 	read REPLY; \

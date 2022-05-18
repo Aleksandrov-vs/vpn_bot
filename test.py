@@ -34,18 +34,14 @@ import functools
 
 
 def my_decorator(my_funk):
-    # @functools.wraps(wrapped=)
     def wrapper(*args, **kwargs):
         print('my_decor')
         for i in args:
             print(i)
         return my_funk(*args, **kwargs)
     return wrapper
+from test1 import a
 
-
-@my_decorator
-def main(a, b, c):
-    print("main")
 
 if __name__ == "__main__":
-    main(1, 2, 3)
+    a()
