@@ -1,47 +1,18 @@
-# a = A()
-#
-#
-# class A(metaclass=MyMetaClass):
-#     pass
-#
-#     def __init__(self):
-#         print('init')
-#
-#     def __call__(self, *args, **kwargs):
-#         print('call')
-#         return super(A, self).__call__(self, *args, **kwargs)
-#
-#
-# # class LittleMeta(type):
-# #     def __new__(cls, clsname, superclasses, attributedict):
-# #         print("clsname: ", clsname)
-# #         print("superclasses: ", superclasses)
-# #         print("attributedict: ", attributedict)
-# #         return type.__new__(cls, clsname, superclasses, attributedict)
-#
-#
-# class MyMetaClass(type):
-#     def __new__(mcs, class_name, parents, attributes):
-#         print('meta new')
-#         return super().__new__(mcs, class_name, parents, attributes)
-#
-#     def __call__(self, *args, **kwargs):
-#         print('meta call')
-#         return type.__call__(self, *args, **kwargs)
-#
+class MyList():
+    a = list
 
-import functools
+    def __init__(self):
+        self.a = self.a()
+
+    def get_list(self):
+        return self.a.copy()
 
 
-def my_decorator(my_funk):
-    def wrapper(*args, **kwargs):
-        print('my_decor')
-        for i in args:
-            print(i)
-        return my_funk(*args, **kwargs)
-    return wrapper
-from test1 import a
+b = MyList()
 
+print(b.a)
 
-if __name__ == "__main__":
-    a()
+c = b.get_list()
+c.append(1)
+
+print(b.a)

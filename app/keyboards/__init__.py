@@ -1,1 +1,1 @@
-__all__ = ["auth_kbd.py"]
+__all__ = ["auth_kbd"]

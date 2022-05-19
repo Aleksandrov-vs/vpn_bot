@@ -130,4 +130,4 @@ dmypy.json
 #my dir
 .idea/
 data/*
-
+vpn_bot_venv
